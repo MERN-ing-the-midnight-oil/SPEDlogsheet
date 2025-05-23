@@ -274,3 +274,44 @@ select {
 .period-slide .route-card {
   margin-bottom: 1.5rem;
 }
+.install-steps ol {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+  font-size: 0.95em;
+}
+
+.install-steps ol li {
+  margin-bottom: 0.5rem;
+}
+
+.share-button {
+  background-color: #e5e7eb;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.share-button:hover {
+  background-color: #d1d5db;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+
+
+

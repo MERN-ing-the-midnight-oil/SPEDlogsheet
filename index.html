@@ -14,7 +14,14 @@
 		<meta
 			name="theme-color"
 			content="#4338ca" />
-		<title>SPED Log Sheet Generator</title>
+		<div class="app-header">
+			<h1>SPED Log Counter</h1>
+			<button
+				id="share-app-button"
+				class="share-button">
+				📤 Share
+			</button>
+		</div>
 		<link
 			rel="manifest"
 			href="manifest.json" />
@@ -26,10 +33,6 @@
 		<div
 			class="app"
 			id="app">
-			<header>
-				<h1>SPED LOG COUNTER</h1>
-			</header>
-
 			<div
 				class="tab-nav"
 				id="tab-nav"></div>
@@ -86,20 +89,51 @@
 			</div>
 		</div>
 
-		<!-- Settings Modal (placeholder) -->
+		<!-- Install Instructions Modal -->
 		<div
-			id="settings-modal"
+			id="install-modal"
 			class="modal hidden">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h2>Settings</h2>
+					<h2>Install This App</h2>
 					<button
-						class="close-button"
-						id="close-settings-modal">
-						×
+						class="close-button red-x-button"
+						id="dismiss-install">
+						✖
 					</button>
 				</div>
-				<p>Settings panel coming soon…</p>
+
+				<p>This app works offline and behaves like a mobile app.</p>
+				<p>To add it to your home screen:</p>
+
+				<div class="install-steps">
+					<ol>
+						<li>
+							<strong>iPhone (Safari):</strong> Tap the
+							<span style="font-size: 1.2em">&#x1f5d2;</span> Share button
+						</li>
+						<li>Scroll down and choose <strong>Add to Home Screen</strong></li>
+						<li>Tap <strong>Add</strong> in the upper right</li>
+					</ol>
+
+					<ol>
+						<li>
+							<strong>Android (Chrome):</strong> Tap the
+							<strong>⋮ menu</strong> (3 dots)
+						</li>
+						<li>
+							Choose <strong>Install app</strong> or
+							<strong>Add to Home screen</strong>
+						</li>
+						<li>Confirm the prompt to add it to your home screen</li>
+					</ol>
+				</div>
+
+				<button
+					class="primary-button"
+					id="got-it-install">
+					Got it
+				</button>
 			</div>
 		</div>
 

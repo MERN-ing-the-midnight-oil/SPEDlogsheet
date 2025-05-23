@@ -1,5 +1,5 @@
 {
-    "name": "SPED Log Sheet",
+    "name": "SPED Log Counter",
     "short_name": "LogSheet",
     "start_url": "index.html",
     "display": "standalone",

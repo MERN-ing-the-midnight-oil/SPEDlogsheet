@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 						.join("")}
 				</div>
 				<button class="edit-button" data-route="${key}">Edit Roster</button>
-				<button class="danger-button" onclick="clearRoute('${key}')">Clear All Present</button>
+				<button class="danger-button" onclick="clearRoute('${key}')">RESET</button>
 			  </div>
 			`;
 			});
@@ -237,4 +237,49 @@ document.addEventListener("DOMContentLoaded", () => {
 		localStorage.setItem("spedLogData", JSON.stringify(routeData));
 		console.log("💾 Data saved");
 	}
+	const installModal = document.getElementById("install-modal");
+	const gotItBtn = document.getElementById("got-it-install");
+	const dismissBtn = document.getElementById("dismiss-install");
+
+	// Only show the modal if user hasn't seen it yet
+	if (!localStorage.getItem("installModalDismissed")) {
+		installModal.classList.remove("hidden");
+	}
+
+	// Dismiss handler
+	function dismissInstallModal() {
+		installModal.classList.add("hidden");
+		localStorage.setItem("installModalDismissed", "true");
+	}
+
+	gotItBtn?.addEventListener("click", dismissInstallModal);
+	dismissBtn?.addEventListener("click", dismissInstallModal);
+
+	const shareBtn = document.getElementById("share-app-button");
+
+	shareBtn?.addEventListener("click", async () => {
+		const shareUrl = window.location.href;
+		const shareData = {
+			title: "Rhys' SPED Log Sheet",
+			text: "Try this quick roster and attendance tracker!",
+			url: shareUrl,
+		};
+
+		if (navigator.share) {
+			try {
+				await navigator.share(shareData);
+				console.log("✅ Shared successfully");
+			} catch (err) {
+				console.warn("Sharing canceled", err);
+			}
+		} else {
+			// Fallback: copy to clipboard
+			try {
+				await navigator.clipboard.writeText(shareUrl);
+				alert("Link copied to clipboard!");
+			} catch {
+				alert("Unable to share or copy link.");
+			}
+		}
+	});
 });
