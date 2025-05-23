@@ -4,25 +4,106 @@
 		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
-			content="width=device-width, initial-scale=1.0" />
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta
+			name="apple-mobile-web-app-capable"
+			content="yes" />
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent" />
 		<meta
 			name="theme-color"
 			content="#4338ca" />
+		<title>SPED Log Sheet Generator</title>
 		<link
 			rel="manifest"
 			href="manifest.json" />
 		<link
 			rel="stylesheet"
 			href="style.css" />
-		<title>SPED Log Sheet</title>
 	</head>
 	<body>
-		<div class="app">
-			<h1>SPED Log Sheet Generator</h1>
-			<p>This app lets you log student attendance by route and category.</p>
-			<button id="launchApp">Launch App</button>
+		<div
+			class="app"
+			id="app">
+			<header>
+				<h1>SPED LOG COUNTER</h1>
+			</header>
+
+			<div
+				class="tab-nav"
+				id="tab-nav"></div>
+			<div id="route-container"></div>
 		</div>
 
-		<script src="app.js"></script>
+		<!-- Edit Students Modal -->
+		<div
+			id="edit-students-modal"
+			class="modal hidden">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2>Edit Students for <span id="edit-route-name"></span></h2>
+					<button
+						class="close-button red-x-button"
+						id="close-edit-x">
+						✖
+					</button>
+				</div>
+
+				<div
+					id="student-list"
+					class="student-list"></div>
+
+				<div class="input-group">
+					<label for="new-student-name">Add New Student</label>
+					<input
+						type="text"
+						id="new-student-name"
+						placeholder="Student Name" />
+				</div>
+
+				<div class="input-group">
+					<label for="new-student-category">Category</label>
+					<select id="new-student-category">
+						<option value="SPED">SPED</option>
+						<option value="MV">MV</option>
+						<option value="Basic">Basic</option>
+						<option value="Pre-K">Pre-K</option>
+					</select>
+				</div>
+
+				<button
+					id="add-student-button"
+					class="primary-button">
+					Add Student
+				</button>
+
+				<button
+					id="close-edit-done"
+					class="secondary-button">
+					Done
+				</button>
+			</div>
+		</div>
+
+		<!-- Settings Modal (placeholder) -->
+		<div
+			id="settings-modal"
+			class="modal hidden">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2>Settings</h2>
+					<button
+						class="close-button"
+						id="close-settings-modal">
+						×
+					</button>
+				</div>
+				<p>Settings panel coming soon…</p>
+			</div>
+		</div>
+
+		<!-- Load app logic -->
+		<script src="app.js?v=3"></script>
 	</body>
 </html>
