@@ -21,6 +21,11 @@
 				class="share-button">
 				📤 Share
 			</button>
+			<button
+				id="show-qr-button"
+				class="share-button">
+				📷 Share by QR Code
+			</button>
 		</div>
 		<link
 			rel="manifest"
@@ -144,6 +149,25 @@
 					id="got-it-install">
 					Got it
 				</button>
+			</div>
+		</div>
+		<div
+			id="qr-modal"
+			class="modal hidden">
+			<div
+				class="modal-content"
+				style="text-align: center">
+				<button
+					id="close-qr-modal"
+					class="close-button red-x-button"
+					style="position: absolute; top: 10px; right: 10px">
+					✖
+				</button>
+				<h2>Scan to Get This App</h2>
+				<img
+					src="qr-spedtally.png"
+					alt="QR Code"
+					style="max-width: 80%; margin-top: 1rem" />
 			</div>
 		</div>
 

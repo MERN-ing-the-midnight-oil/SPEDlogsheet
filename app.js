@@ -282,4 +282,15 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		}
 	});
+	const qrBtn = document.getElementById("show-qr-button");
+	const qrModal = document.getElementById("qr-modal");
+	const closeQr = document.getElementById("close-qr-modal");
+
+	qrBtn?.addEventListener("click", () => {
+		qrModal.classList.remove("hidden");
+	});
+
+	closeQr?.addEventListener("click", () => {
+		qrModal.classList.add("hidden");
+	});
 });
