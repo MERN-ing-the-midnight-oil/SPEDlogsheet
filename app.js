@@ -134,7 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		}
 	}
-
 	function openEditStudentsModal() {
 		const modal = document.getElementById("edit-students-modal");
 		const editRouteName = document.getElementById("edit-route-name");
@@ -143,40 +142,43 @@ document.addEventListener("DOMContentLoaded", () => {
 		const newStudentCategory = document.getElementById("new-student-category");
 		const addButton = document.getElementById("add-student-button");
 
-		if (!modal) return;
+		if (
+			!modal ||
+			!editRouteName ||
+			!studentList ||
+			!newStudentName ||
+			!newStudentCategory ||
+			!addButton
+		) {
+			console.error("❌ One or more modal elements not found");
+			return;
+		}
 
 		editRouteName.textContent = activeTab.toUpperCase();
-		renderStudentList();
+		renderStudentList(); // ✅ Initial render
 
-		const xBtn = document.getElementById("close-edit-x");
-		if (xBtn) {
-			xBtn.addEventListener("click", () => {
-				modal.classList.add("hidden");
-				renderAllSubroutes();
-			});
-		}
-
-		const doneBtn = document.getElementById("close-edit-done");
-		if (doneBtn) {
-			doneBtn.addEventListener("click", () => {
-				modal.classList.add("hidden");
-				renderAllSubroutes();
-			});
-		}
-
-		document.getElementById("close-edit-done").addEventListener("click", () => {
+		document.getElementById("close-edit-x").onclick = () => {
 			modal.classList.add("hidden");
-			renderAllSubroutes();
-		});
+		};
+
+		document.getElementById("close-edit-done").onclick = () => {
+			modal.classList.add("hidden");
+			renderAllSubroutes(); // ✅ Update main screen with any changes
+		};
 
 		addButton.onclick = function () {
 			const name = newStudentName.value.trim();
 			const category = newStudentCategory.value;
+
 			if (!name) return alert("Enter a name");
+
 			routeData[activeTab].students.push({ name, category });
+
+			console.log("👤 Added:", name, "to", activeTab, "as", category);
+
 			newStudentName.value = "";
 			saveData();
-			renderStudentList();
+			renderStudentList(); // ✅ Show updated student list
 		};
 
 		modal.classList.remove("hidden");
