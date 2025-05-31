@@ -285,6 +285,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 	const qrBtn = document.getElementById("show-qr-button");
+	// Install modal handler
+	const installBtn = document.getElementById("install-app-button");
+	installBtn?.addEventListener("click", () => {
+		if (installModal) installModal.classList.remove("hidden");
+	});
+
 	const qrModal = document.getElementById("qr-modal");
 	const closeQr = document.getElementById("close-qr-modal");
 

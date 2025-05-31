@@ -15,6 +15,12 @@
 			name="theme-color"
 			content="#4338ca" />
 		<div class="app-header">
+			<button
+				id="install-app-button"
+				class="share-button">
+				⬇️ Install
+			</button>
+
 			<h1>SPED Log Counter</h1>
 			<button
 				id="share-app-button"
@@ -72,39 +78,42 @@
 					</button>
 				</div>
 
-				<div
-					id="student-list"
-					class="student-list"></div>
+				<div class="modal-body">
+					<div
+						id="student-list"
+						class="student-list"></div>
 
-				<div class="input-group">
-					<label for="new-student-name">Add New Student</label>
-					<input
-						type="text"
-						id="new-student-name"
-						placeholder="Student Name" />
+					<div class="input-group">
+						<label for="new-student-name">Add New Student</label>
+						<input
+							type="text"
+							id="new-student-name"
+							placeholder="Student Name" />
+					</div>
+
+					<div class="input-group">
+						<label for="new-student-category">Category</label>
+						<select id="new-student-category">
+							<option value="SPED">SPED</option>
+							<option value="MV">MV</option>
+							<option value="Basic">Basic</option>
+							<option value="Pre-K">Pre-K</option>
+						</select>
+					</div>
 				</div>
 
-				<div class="input-group">
-					<label for="new-student-category">Category</label>
-					<select id="new-student-category">
-						<option value="SPED">SPED</option>
-						<option value="MV">MV</option>
-						<option value="Basic">Basic</option>
-						<option value="Pre-K">Pre-K</option>
-					</select>
+				<div class="modal-footer">
+					<button
+						id="add-student-button"
+						class="primary-button">
+						Add Student
+					</button>
+					<button
+						id="close-edit-done"
+						class="secondary-button">
+						Done
+					</button>
 				</div>
-
-				<button
-					id="add-student-button"
-					class="primary-button">
-					Add Student
-				</button>
-
-				<button
-					id="close-edit-done"
-					class="secondary-button">
-					Done
-				</button>
 			</div>
 		</div>
 
